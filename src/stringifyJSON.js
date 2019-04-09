@@ -11,17 +11,13 @@ var stringifyJSON = function(obj) {
 function helper(obj) {
   if (typeof obj === 'number') {
     return '' +obj;
-  }
-  if (typeof obj === 'string') {
+  } else if (typeof obj === 'string') {
     return `"${obj}"`;
-  }
-  if (typeof obj === 'boolean') {
+  } else if (typeof obj === 'boolean') {
     return ''+ obj;
-  }
-  if (obj === null) {
+  } else if (obj === null) {
     return '' + obj;
-  }
-  if (Array.isArray(obj)) {
+  } else if (Array.isArray(obj)) {
     if (obj.length === 0) {
       return '[]';
     }
@@ -34,8 +30,7 @@ function helper(obj) {
     }
     result += ']';
     return result;
-  }
-  if (typeof obj === 'object') {
+  } else if (typeof obj === 'object') {
     var result = '{';
     for (var key in obj) {
       if (result !== '{') {
